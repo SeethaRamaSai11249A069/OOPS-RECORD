@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+class Sample {
+private:
+    int num;
+
+public:
+    void getNumber() {
+        cout << "Enter a number: ";
+        cin >> num;
+    }
+
+    
+    friend int addNumbers(Sample, Sample);
+};
+
+
+int addNumbers(Sample s1, Sample s2) {
+    return (s1.num + s2.num);
+}
+
+int main() {
+    Sample obj1, obj2;
+
+    obj1.getNumber();
+    obj2.getNumber();
+
+    cout << "Sum of numbers = " << addNumbers(obj1, obj2) << endl;
+
+    return 0;
+}
